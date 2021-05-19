@@ -36,8 +36,7 @@
 }
 
 .goods-info p:first-child {
-  margin-top: .05rem;
-  margin-bottom: .3rem;
+  margin-bottom: .2rem;
   text-align: justify;
   letter-spacing: 1px;
   color: #474747;
@@ -74,12 +73,11 @@
   display: flex;
   align-items: center;
   height: .6rem;
-  margin-top: .34rem;
   font-size: .4rem;
   color: #ff762e;
 }
 .goods-info p:nth-child(3) span {
-  margin-top: .07rem;
+  margin-top: .034rem;
 }
 
 .goods-button-left, .goods-button-right {

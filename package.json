@@ -11,7 +11,8 @@
     "@testing-library/user-event": "^7.1.2",
     "@typescript-eslint/eslint-plugin": "^2.10.0",
     "@typescript-eslint/parser": "^2.10.0",
-    "antd": "^4.3.3",
+    "aliplayer-react": "^0.4.3",
+    "antd": "^4.4.0",
     "axios": "^0.19.2",
     "babel-eslint": "10.1.0",
     "babel-jest": "^24.9.0",
@@ -70,9 +71,11 @@
     "ts-pnp": "1.1.6",
     "url-loader": "2.3.0",
     "video.js": "^7.8.3",
+    "videojs-flash": "^2.2.1",
     "webpack": "4.42.0",
     "webpack-dev-server": "3.10.3",
     "webpack-manifest-plugin": "2.2.0",
+    "weixin-js-sdk": "^1.6.0",
     "workbox-webpack-plugin": "4.3.1"
   },
   "scripts": {

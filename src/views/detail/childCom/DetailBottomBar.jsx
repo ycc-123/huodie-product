@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
 
-
-import { ccid } from 'commons/utils'
 import { addGoodsCart } from 'network/detail'
+import { ccid } from 'commons/utils'
+
 
 class DetailBottomBar extends Component {
   render() {
@@ -13,11 +13,11 @@ class DetailBottomBar extends Component {
     return (
       <footer className='detail-bottom-bar'>
         <div className='detail-bottom-icon' onClick={() => { this.goHome() }}>
-          <img src={require('assets/img/首页.png')} alt='图片正在加载中' />
+          <img src={require('assets/img/home.png')} alt='图片正在加载中' />
           <span>首页</span>
         </div>
         {goods.selltype === '1' && <div className='detail-bottom-icon'>
-          <img src={require('assets/img/客服.png')} alt='图片正在加载中' />
+          <img src={require('assets/img/service.png')} alt='图片正在加载中' />
           <span>客服</span>
         </div>}
         {goods.selltype === '1' && <button className='detail-bottom-button'>
@@ -39,9 +39,7 @@ class DetailBottomBar extends Component {
           </p>
         </button>}
         {goods.selltype === '0' && <button className='detail-bottom-button' onClick={() => { this.addCart(goods.uniacid, ccid, goods.gid, goods.num) }}>
-          <p>
-            去结算
-          </p>
+          去结算
         </button>}
         {goods.selltype === '0' && <button className='detail-total-price'>
           总价: <span>￥</span>{goods.totalPrice}
@@ -52,15 +50,12 @@ class DetailBottomBar extends Component {
   goHome = () => {
     this.props.history.push('/home')
   }
-  /* goCart = () => {
-    this.props.history.push('/cart')
-  } */
   addCart = (uniacid, ccid, gid, num) => {
     addGoodsCart('cart_add', uniacid, ccid, gid, num).then(res => {
       new Promise(resole => {
         resole()
       }).then(() => {
-        this.props.history.push('/cart')
+        this.props.history.push('/submit')
       })
     })
   }

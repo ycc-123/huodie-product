@@ -69,7 +69,7 @@ class Home extends Component {
           <SwiperComponent dataList={this.state.dataList} config={discountConfig} />
           <HomeGoodsList goodsList={this.state.goodsList} />
           <div className='bottom-tip' style={{ visibility: showLoding }}>
-            <img src={require('assets/img/加载.png')} alt="加载中" />
+            <img src={require('assets/img/loading.png')} alt="加载中" />
             莫急，等一下
           </div>
         </BetterScroll>
@@ -91,6 +91,10 @@ class Home extends Component {
     }).catch(err => {
       alert('数据请求失败请稍候再试')
     })
+  }
+  componentDidMount =() => {
+    let title = document.querySelector('title')
+    title.innerText = '首页'
   }
   componentDidCache = () => {
     // 获取组件进入缓存时scroll的y值

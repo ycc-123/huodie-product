@@ -10,8 +10,8 @@ class DetailGoodsInfo extends Component {
           <span className='detail-left'>会员价</span>
           <span className='detail-right'>￥4.99</span>
         </p>
-        <p>市场价: <span>￥</span>{goods.mprice}
-          {goods.selltype === '0' && <span className='detail-calculate' ref='detailNum'>
+        <p ref='aaaa'>市场价: <span>￥</span>{goods.mprice}
+          {goods.selltype === '0' && <span className='detail-calculate'>
             <button className='detail-decrement' onClick={this.decrement}>
               -
             </button>
@@ -35,6 +35,9 @@ class DetailGoodsInfo extends Component {
   }
   increment = () => {
     this.props.incrementNum()
+  }
+  componentDidMount = () => {
+    console.log(this.refs.aaaa.offsetTop)
   }
 }
 

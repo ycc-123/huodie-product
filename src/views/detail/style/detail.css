@@ -1,13 +1,13 @@
-.detail {
-  position: relative;
-  top: .2rem;
-}
+/* .detail {
+  margin-top: .2rem;
+} */
 
 /* 轮播开始 */
 
 .detail-swiper {
   width: 100%;
   height: 4.8rem;
+  margin-top: .2rem;
   padding: 0 .32rem;
 }
 
@@ -87,9 +87,10 @@
 .detail-goods-info p:nth-child(3) {
   position: relative;
   display: flex;
+  align-items: flex-end;
   width: 100%;
+  height: .61rem;
   font-size: .4rem;
-  align-items: center;
   text-decoration: line-through;
   color: #c1c1c1;
 }
@@ -108,7 +109,12 @@
   border-radius: .6rem;
   border: .05rem solid #fff;
 }
+
 .detail-decrement, .detail-increment {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 1rem;
   height: 100%;
   font-size: .4rem;
@@ -116,11 +122,31 @@
   background: transparent;
   color: #ff762e;
 }
+
 .detail-decrement {
   float: left;
 }
+
+.detail-decrement::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: .05rem;
+  height: .4rem;
+  background: #fff;
+}
+
 .detail-increment {
   float: right;
+}
+
+.detail-increment::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: .05rem;
+  height: .4rem;
+  background: #fff;
 }
 
 .detail-goods-info p:nth-child(4) {
@@ -167,7 +193,7 @@
   display: flex;
   align-items: flex-end;
   z-index: 99;
-  top: -1.32rem;
+  top: -1.28rem;
   width: 2.84rem;
   height: .52rem;
 }

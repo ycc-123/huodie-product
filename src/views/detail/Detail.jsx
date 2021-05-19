@@ -39,7 +39,7 @@ class Detail extends Component {
     }
     const scrollStyle = {
       height: 'calc(100vh - 1.5rem)',
-      top: '0',
+      top: '.2rem',
       bottom: '0'
     }
     let swiper
@@ -59,7 +59,7 @@ class Detail extends Component {
         <div className='detail'>
           <BetterScroll config={scollConfig} style={scrollStyle} ref='scroll'>
             {swiper}
-            {this.state.goods && <DetailGoodsInfo goods={this.state.goods} decrementNum={this.decrementNum} incrementNum={this.incrementNum} />}
+            {this.state.goods && <DetailGoodsInfo goods={this.state.goods} ref='info' decrementNum={this.decrementNum} incrementNum={this.incrementNum} />}
             <DetailCourier />
             <DetailPhotoInfo />
             {recommend && <DetailRecommend dataList={recommend} />}
@@ -85,10 +85,11 @@ class Detail extends Component {
       alert('数据请求失败,请稍后再试')
     })
   }
-  componentDidUpdate() {
+  componentDidUpdate = () => {
     // 组件重新渲染时，刷新scroll可滚动距离，并且让scroll默认x，y都为0 不然有bug
     this.refs.scroll.BScroll.refresh()
-    this.refs.scroll.BScroll.scrollTo(0, 0)
+    /* this.refs.scroll.BScroll.scrollTo(0, 0)  */
+    console.log(this.refs.info.refs.aaaa.offsetTop)
   }
   decrementNum = () => {
     if (this.goods.num > 1) {
@@ -105,11 +106,9 @@ class Detail extends Component {
     this.setState({
       goods: this.goods
     })
-    console.log(this.state.goods)
   }
   componentWillUnmount() {
     this.goods = null
-    console.log(this.goods)
   }
 }
 

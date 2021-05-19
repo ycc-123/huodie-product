@@ -121,7 +121,7 @@
 }
 .cart-heavy {
   position: absolute;
-  top: 60%;
+  top: 50%;
   transform: translate(0,-50%);
   color: #c1c1c1;
 }

@@ -26,8 +26,8 @@ class DetailPhotoInfo extends Component {
      );
   }
   changeActive = (e) => {
-    let button = document.querySelectorAll('.detail-photo-button button')
     if(!e.target.classList[1]) {
+      let button = document.querySelectorAll('.detail-photo-button button')
       this.setState({
         active: !this.state.active
       })

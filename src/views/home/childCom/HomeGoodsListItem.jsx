@@ -12,7 +12,7 @@ class HomeGoodsList extends Component {
             <img src={item.gimg} alt="加载中" onClick={() => { this.goDetail(item.id) }} />
           </div>
           <div className='goods-info'>
-            <p>{item.gname}</p>
+            <p className='laiyiquan'>{item.gname}</p>
             <p>市场价: <span>￥</span> {item.mprice}</p>
             <p>
               <span>￥</span>
@@ -24,7 +24,7 @@ class HomeGoodsList extends Component {
               已售<span>{item.salenum}</span>
               库存{item.gnum}
             </p>
-            <img className='goods-info-img' src={require('assets/img/购物车.svg')} alt="正在加载中" />
+            <img className='goods-info-img' src={require('assets/img/cart2.png')} alt="正在加载中" />
           </div>
         </div>
       )
@@ -35,10 +35,10 @@ class HomeGoodsList extends Component {
             <img src={item.gimg} alt="加载中" onClick={() => { this.goDetail(item.id) }} />
           </div>
           <div className='goods-info'>
-            <p>{item.gname}</p> 
+            <p className='laiyiquan'>{item.gname}</p> 
             <p>
               市场价: <span>￥</span> {item.mprice}
-              <img src={require('assets/img/团购.png')} alt='加载中' />
+              <img src={require('assets/img/team.png')} alt='加载中' />
               <label className='team'>
                 3人团
               </label>
@@ -69,6 +69,9 @@ class HomeGoodsList extends Component {
     // 路由携带参数 query
     this.props.history.push('/detail/' + id)
   }
+  /* componentDidMount = () => {
+    
+  } */
 }
 
 export default withRouter(HomeGoodsList);

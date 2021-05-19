@@ -6,7 +6,7 @@ import AppRouter from './router/AppRouter'
 
 import 'lib-flexible'
 import 'assets/css/border.css'
-import 'assets/css/reset.css'
+import 'assets/css/basic.css'
 /* import 'lib-flexible' */
 
 FastClick.attach(document.body)

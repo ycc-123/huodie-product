@@ -30,7 +30,7 @@ class Category extends Component {
         </Fragment>
       )
       image = (
-        <img src={require('assets/img/左侧商品.png')} alt="加载中" onClick={this.changeImage} />
+        <img src={require('assets/img/left.png')} alt="加载中" onClick={this.changeImage} />
       )
     } else {
       dom = (
@@ -39,7 +39,7 @@ class Category extends Component {
         </Fragment>
       )
       image = (
-        <img src={require('assets/img/右侧轮播.png')} alt="加载中" onClick={this.changeImage} />
+        <img src={require('assets/img/right.png')} alt="加载中" onClick={this.changeImage} />
       )
     }
     return (
@@ -66,6 +66,10 @@ class Category extends Component {
         store.dispatch(action)
       })
     })
+  }
+  componentDidMount = () => {
+    let title = document.querySelector('title')
+    title.innerText = '分类'
   }
   changeImage = () => {
     if (this.state.type === 'swiper') {

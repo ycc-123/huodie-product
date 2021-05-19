@@ -5,9 +5,12 @@ import { showLoadingAction, hideLoadingAction } from 'store/actionCreators'
 // 重新请求的次数,请求的间隙
 export function request(config) {
   let loading
-  // 1.创建axios的实例
+  // 1.创建axios的实例s
   const instance = axios.create({
-    baseURL: 'http://dev.huodiesoft.com',
+    // 测试站
+    baseURL: 'https://dev.huodiesoft.com/wechat_api.php',
+    // 正式站
+    // baseURL: 'https://www.lexiangpingou.cn/wechat_api.php',
     timeout: 1000
   })
   // 2.axios的拦截器
@@ -20,7 +23,7 @@ export function request(config) {
 
   // 2.2响应拦截器
   instance.interceptors.response.use(res => {
-      if(loading === 1) {
+      if(loading === 1 && res) {
         const action = hideLoadingAction()
         store.dispatch(action)
       }
@@ -41,7 +44,6 @@ export function request(config) {
     // 自增重试次数
     config.retryCount += 1;
     // 创建一个新的promis对象 在定时过后发送一个解决函数 收到解决函数才能then
-    console.log(config.retryCount)
     var backoff = new Promise(resolve => {
       setTimeout(() => {
         resolve();

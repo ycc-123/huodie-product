@@ -16,7 +16,7 @@ class HomeHead extends Component {
   render() { 
     return ( 
       <header className='home-header'>
-        <img src={require("assets/img/定位.svg")}  onClick={this.showLocation} alt="图片正在加载中"/>
+        <img src={require("assets/img/position.svg")}  onClick={this.showLocation} alt="图片正在加载中"/>
         <ul ref='ul' className='location'>
           { this.state.locationList.map((item, index) => {
             return (

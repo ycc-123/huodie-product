@@ -2,7 +2,6 @@ import { request } from './request'
 
 export function getCategoryData(op, uniacid) {
   return request({
-    url: '/wechat_api.php',
     params: {
       op,
       uniacid
@@ -14,7 +13,6 @@ export function getCategoryData(op, uniacid) {
 // type写3  erp_warehouseid仓库id 
 export function getCategoryGoods(uniacid, op, fk_typeid, page, pagesize, type, erp_warehouseid) {
   return request({
-    url: '/wechat_api.php',
     params: {
       uniacid,
       op,

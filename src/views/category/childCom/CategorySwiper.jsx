@@ -35,13 +35,13 @@ class CategorySwiper extends Component {
                       <p>
                         <span>￥</span>
                         {item.oprice}
-                        <button className='goods-button-left'>会员价</button>
-                        <button className='goods-button-right'><span>￥</span>4.99</button>
+                        <button className='category-button-left'>会员价</button>
+                        <button className='category-button-right'><span>￥</span>4.99</button>
                       </p>
                       <p>
                         已售<span>{item.salenum}</span>
                         库存{item.gnum}
-                        <img className='category-goods-img' src={require('assets/img/购物车.svg')} alt="正在加载中" />
+                        <img className='category-goods-img' src={require('assets/img/cart2.png')} alt="正在加载中" />
                       </p>
                     </div>
                   </div>

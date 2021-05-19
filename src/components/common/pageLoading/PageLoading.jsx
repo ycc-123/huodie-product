@@ -24,7 +24,7 @@ class PageLoading extends Component {
       <Fragment>
         {this.count <= 2 && <div className='home-loadingBg' style={{ display: showLoding }}>
           <div className='home-loading-img'>
-            <img src={require('assets/img/加载.png')} alt="加载中" />
+            <img src={require('assets/img/loading.png')} alt="加载中" />
           </div>
         </div>}
       </Fragment>

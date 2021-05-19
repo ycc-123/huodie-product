@@ -8,11 +8,11 @@ class TabBar extends Component {
     super(props)
     this.state = {
       tabArr: [
-        {id: 1010, content: '首页', src: require('assets/img/首页.png'), activeSrc: require('assets/img/首页1.png'), path: '/home'},
-        {id: 1011, content: '分类', src: require('assets/img/分类.png'), activeSrc: require('assets/img/分类1.png'), path: '/category'},
-        {id: 1012, content: '购物车', src: require('assets/img/购物车.png'), activeSrc: require('assets/img/购物车1.png'), path: '/cart'},
-        {id: 1013, content: '直播', src: require('assets/img/直播.png'), activeSrc: require('assets/img/直播1.png'), path: '/live'},
-        {id: 1014, content: '我的', src: require('assets/img/我的.png'), activeSrc: require('assets/img/我的1.png'), path: '/profile'}
+        {id: 1010, content: '首页', src: require('assets/img/home.png'), activeSrc: require('assets/img/home1.png'), path: '/home'},
+        {id: 1011, content: '分类', src: require('assets/img/category.png'), activeSrc: require('assets/img/category1.png'), path: '/category'},
+        {id: 1012, content: '购物车', src: require('assets/img/cart.png'), activeSrc: require('assets/img/cart1.png'), path: '/cart'},
+        {id: 1013, content: '直播', src: require('assets/img/live.png'), activeSrc: require('assets/img/live1.png'), path: '/live'},
+        {id: 1014, content: '我的', src: require('assets/img/profile.png'), activeSrc: require('assets/img/profile1.png'), path: '/profile'}
       ]
     }
   }

@@ -12,12 +12,12 @@ class CartGoodsItem extends Component {
         <li className='cart-goods-item'>
           <div className='cart-goods-box'>
             {selected && <div className='choose'>
-              <img src={require('assets/img/选择1.png')} alt="图片太帅手机不配显示"
+              <img src={require('assets/img/select1.png')} alt="图片太帅手机不配显示"
                 onClick={() => { this.changenChecked(this.props.index) }} />
             </div>}
 
             {!selected && <div className='choose'>
-              <img src={require('assets/img/选择.png')} alt="图片太帅手机不配显示"
+              <img src={require('assets/img/select.png')} alt="图片太帅手机不配显示"
                 onClick={() => { this.changenChecked(this.props.index) }} />
             </div>}
             <div className='cart-goods-info'>
@@ -44,7 +44,7 @@ class CartGoodsItem extends Component {
             </div>
           </div>
           <div className='del' onClick={() => { this.deleteGoods(this.props.index, this.props.goods.id) }}>
-            <img src={require('assets/img/删除.png')} alt="正在加载中" />
+            <img src={require('assets/img/delete.png')} alt="正在加载中" />
           </div>
         </li>
       </Fragment>

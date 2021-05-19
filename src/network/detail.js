@@ -2,7 +2,6 @@ import { request } from './request'
 
 export function getGoodsDetail(op, uniacid, id) {
   return request({
-    url: '/wechat_api.php',
     params: {
       op,
       uniacid,
@@ -13,7 +12,6 @@ export function getGoodsDetail(op, uniacid, id) {
 
 export function getDetailRecommend(op, uniacid, app) {
   return request({
-    url: '/wechat_api.php',
     params: {
       op,
       uniacid,
@@ -24,7 +22,6 @@ export function getDetailRecommend(op, uniacid, app) {
 
 export function addGoodsCart(op, uniacid, ccid, gid, num) {
   return request({
-    url: '/wechat_api.php',
     params: {
       op,
       uniacid,

@@ -1,40 +1,74 @@
-import React, { Component } from 'react'
-import { HashRouter as Router, Route, Link } from 'react-router-dom'
+//公共库
+import React, { Component } from 'react';
+import './style/profile.css'
 
-import One from './One'
-import Two from './Two'
-import Three from './Three'
+
+
+
+// 子组件
 import TabBar from 'common/tabBar/TabBar'
+import ProfileHeader from './childCom/ProfileHeader'
+import ProfileOrder from './childCom/ProfileOrder'
+import ProfileMember from './childCom/ProfileMember'
+import ProfileCommander from './childCom/ProfileCommander';
 
-import './profile.css'
+// 公共组件
+import BetterScroll from 'common/betterScroll/BetterScroll'
+
+// 网络请求
+
+// redux
 
 class Profile extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      arr: 1
-    }
-  }
-  render() {
-    return (
-        <Router>
-          <ul>
-            <li><Link to='/profile/one'>第一个</Link></li>
-            <li><Link to='/profile/two'>第二个</Link></li>
-            <li><Link to='/profile/three'>第三个</Link></li>
-          </ul>
-          <div>
-            <Route path='/profile/one' component={One}></Route>
-            <Route path='/profile/two' component={Two}></Route>
-            <Route path='/profile/three' component={Three}></Route>
-          </div>
-          <TabBar></TabBar>
-        </Router>
-    )
-  }
-  componentDidMount() {
-    console.log(this.props)
-  }
-}
+    constructor(props) {
+        super(props);
+        this.state = { 
 
-export default Profile
+         }
+    }
+    render() { 
+
+        const scrollConfig = {
+            probeType:1
+        }
+
+        const scrollStyle = {
+            width:'calc(100vw - .64rem )',
+            height: 'calc(100vh - 1.48rem -7.67rem)',
+            top: '8.9rem'
+            ,left:'0.32rem'
+          }
+
+        return ( 
+            <div className="profile">
+
+<ProfileHeader >
+
+</ProfileHeader>
+ <ProfileOrder>
+ </ProfileOrder>
+
+            <BetterScroll config={scrollConfig} style={scrollStyle}>
+
+            <ProfileMember/>
+            
+            <ProfileCommander />
+
+            </BetterScroll>
+
+           
+
+             
+
+               
+               
+            
+
+                <TabBar>
+                </TabBar>
+            </div>
+         );
+    }
+}
+ 
+export default Profile;

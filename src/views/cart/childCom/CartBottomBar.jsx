@@ -25,9 +25,9 @@ class CartBottomBar extends Component {
       <Fragment>
         <div className='cart-bottom-bar clearfix'>
           <div className='global-choose'>
-            {store.getState().selectAll && <img src={require('assets/img/选择1.png')} alt="图片太帅手机无法显示"
+            {store.getState().selectAll && <img src={require('assets/img/select1.png')} alt="图片太帅手机无法显示"
               onClick={this.selectAll} />}
-            {!store.getState().selectAll && <img src={require('assets/img/选择.png')} alt="图片太帅手机无法显示"
+            {!store.getState().selectAll && <img src={require('assets/img/select.png')} alt="图片太帅手机无法显示"
               onClick={this.selectAll} />}
             全选
           </div>
