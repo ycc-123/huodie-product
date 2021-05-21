@@ -6,13 +6,13 @@ class HomeGoodsList extends Component {
   render() {
     const { goodsList } = this.props
     return (
-      <div className='goods-list'>
+      <ul className='goods-list'>
         {goodsList.map((item, index) => {
           return (
             <HomeGoodsListItem key={item.id + index} item={item} />
           )
         })}
-      </div>
+      </ul>
     );
   }
   componentDidUpdate = () => {
@@ -21,11 +21,11 @@ class HomeGoodsList extends Component {
       if(item.offsetHeight >= 30 ) {
         item.nextSibling.style.marginBottom = .08 + 'rem'
         item.style.marginBottom = .2+ 'rem'
-        console.log(item.offsetHeight)
+        // console.log(item.offsetHeight)
       } else {
         item.style.marginBottom = .4+ 'rem'
         item.nextSibling.style.marginBottom = .2 + 'rem'
-        console.log(item.offsetHeight)
+        // console.log(item.offsetHeight)
       }
     })
   }

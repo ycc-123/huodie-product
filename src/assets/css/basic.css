@@ -8,6 +8,14 @@
   font-family: "Microsoft YaHei"
 }
 
+ol, ul, dl { 
+  margin-bottom: 0;
+}
+
+button {
+  border: none;
+}
+
 p {
   margin-bottom: 0;
 }

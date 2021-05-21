@@ -24,7 +24,9 @@ import './style/detail.css'
 
 class Detail extends Component {
   constructor(props) {
-    super(props);
+    super(props)
+    /* props.cacheLifecycles.didCache(this.componentDidCache)
+    props.cacheLifecycles.didRecover(this.componentDidRecover) */
     this.state = {
       goodsData: '',
       recommend: null,
@@ -57,14 +59,22 @@ class Detail extends Component {
       <Fragment>
         <PageLoading />
         <div className='detail'>
-          <BetterScroll config={scollConfig} style={scrollStyle} ref='scroll'>
+          <BetterScroll config={scollConfig}
+            style={scrollStyle}
+            ref='scroll'>
             {swiper}
-            {this.state.goods && <DetailGoodsInfo goods={this.state.goods} ref='info' decrementNum={this.decrementNum} incrementNum={this.incrementNum} />}
+            {this.state.goods && <DetailGoodsInfo goods={this.state.goods}
+              ref='info'
+              decrementNum={this.decrementNum}
+              incrementNum={this.incrementNum} />}
             <DetailCourier />
             <DetailPhotoInfo />
             {recommend && <DetailRecommend dataList={recommend} />}
           </BetterScroll>
-          {this.state.goods && <DetailBottomBar goods={this.state.goods} />}
+          {this.state.goods &&
+            <DetailBottomBar goods={this.state.goods}
+              decrementNum={this.decrementNum}
+              incrementNum={this.incrementNum} />}
         </div>
       </Fragment>
 
@@ -80,16 +90,27 @@ class Detail extends Component {
         goodsData: res[0].data,
         recommend: res[1].data,
         goods: this.goods
+      }, () => {
+        this.refs.scroll.BScroll.refresh()
+        console.log(this.state.goodsData)
       })
     }).catch(err => {
       alert('数据请求失败,请稍后再试')
     })
   }
-  componentDidUpdate = () => {
-    // 组件重新渲染时，刷新scroll可滚动距离，并且让scroll默认x，y都为0 不然有bug
+  /* componentDidCache = () => {
+    // 获取组件进入缓存时scroll的y值
+    console.log(this.refs.scroll.BScroll)
+    this.saveY = this.refs.scroll.BScroll.y
+    console.log(this.saveY)
+  }
+  componentDidRecover = () => {
+    console.log(this.refs.scroll.BScroll)
     this.refs.scroll.BScroll.refresh()
-    /* this.refs.scroll.BScroll.scrollTo(0, 0)  */
-    console.log(this.refs.info.refs.aaaa.offsetTop)
+    this.refs.scroll.BScroll.scrollTo(0, this.saveY)
+  } */
+  componentWillUnmount = () => {
+    this.goods = null
   }
   decrementNum = () => {
     if (this.goods.num > 1) {
@@ -106,9 +127,6 @@ class Detail extends Component {
     this.setState({
       goods: this.goods
     })
-  }
-  componentWillUnmount() {
-    this.goods = null
   }
 }
 

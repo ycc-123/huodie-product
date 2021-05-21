@@ -46,5 +46,6 @@ export class Goods {
     this.num = 1 // 默认数量
     this.ccid = Math.floor(Math.random() * 100) // 随机生成ccid
     this.totalPrice = this.num * this.oprice // 总价
+    this.gimg = itemInfo.gimg // 图片
   }
 } 

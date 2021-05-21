@@ -1,5 +1,6 @@
 /* head 样式开始 */
 
+
 .home-header {
   position: sticky;
   display: flex;
@@ -295,8 +296,8 @@
 .wrapper {
   overflow: hidden;
   position: absolute;
-  top: 1.2rem;
-  bottom: 1.28rem;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
 }
@@ -368,4 +369,17 @@
 }
 .home-loading-img img {
   animation: loading 1s linear infinite;
+}
+
+.home-live {
+  width: 100%;
+  height: 5rem;
+  padding: 0 .32rem;
+}
+
+.home-live-cover {
+  margin-top: .16rem;
+  width: 100%;
+  height: 100%;
+  background: green;
 }

@@ -1,5 +1,5 @@
 import { SHOW_LOADING, HIDE_LOADING,  INCREMENT_GOODS, DECREMENT_GOODS, GET_DATA, IS_SELECT, SELECT_ALL, DELETE_CART_GOODS, 
-  CATEGORY_TITLE, CATEGORY_GOODS, CATEGORY_INDEX} from './actionTypes'
+  CATEGORY_TITLE, CATEGORY_GOODS, CATEGORY_INDEX,USER_INFO} from './actionTypes'
 
 const defaultState = {
   loading: false,
@@ -8,7 +8,8 @@ const defaultState = {
   totalPrice: 0,
   totalNumber: 0,
   categoryIndex: 0,
-  categoryGoods: []
+  categoryGoods: [],
+  userInfo:{}
 }
 
 
@@ -45,7 +46,7 @@ export default (state = defaultState, action) => {
     case SELECT_ALL: 
       newState.selectAll = !newState.selectAll
       return newState
-    // 删除数据
+    // 删除购物车商品
     case DELETE_CART_GOODS:
       newState.cartGoods.splice(action.index, 1)
       return newState
@@ -60,6 +61,9 @@ export default (state = defaultState, action) => {
     // 保存分类右侧数据
     case CATEGORY_GOODS:
       newState.categoryGoods[action.index]['data'] = action.data
+      return newState
+    case USER_INFO:
+      newState.userInfo = action.data
       return newState
     default: break
   }

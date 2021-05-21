@@ -13,10 +13,10 @@ class BetterScroll extends Component {
     )
   }
   componentDidMount() {
-    const ver = navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/);
+    // const ver = navigator.appVersion.match(/OS (\d+)_(\d+)_?(\d+)?/);
     /* alert(ver) */
     // 判断ios是否大于13.4
-    const isIosVerLgThan1304 = (ver && ver.length > 3 && ver[1] >= 13 && ver[2] >= 4) || (ver && ver.length > 3 && ver[1] >= 14);
+    // const isIosVerLgThan1304 = (ver && ver.length > 3 && ver[1] >= 13 && ver[2] >= 4) || (ver && ver.length > 3 && ver[1] >= 14);
     const { probeType } = this.props.config
     this.BScroll = new BScroll(this.refs.wrapper, {
       // probeType  侦测 要不要侦测滚动 0 不侦测实时位置 1侦测
@@ -34,18 +34,21 @@ class BetterScroll extends Component {
       // 阻止冒泡事件
       stopPropagation: true,
       // 开启鼠标滚轮
-      mouseWheel: true
+      mouseWheel: true,
+      /* bounce: {
+        top: false,
+        bottom: false
+      } */
       // ios端13.4以上快速滑动bug解决办法
       // useTransition: false
     })
     // 监听滚动事件
-    /* this.BScroll.on('scroll', position => {
-      console.log(this.BScroll.scrollerHeight)
+   /*  this.BScroll.on('scroll', position => {
+      console.log(position.y)
     }) */
     // 下拉事件
     this.BScroll.on('pullingUp', () => {
       if (this.props.loadMore && this.props.isLoadMore) {
-        console.log(this.props.isLoadMore)
         this.props.loadMore()
       } else {
         console.log(this.BScroll.disable)
@@ -53,9 +56,14 @@ class BetterScroll extends Component {
 
     })
     // 手指离开屏幕事件
-    /* this.BScroll.on('touchEnd', position => {
-      this.BScroll.stop()
-    }) */
+    this.BScroll.on('scrollEnd', position => {
+      // console.log(this.BScroll)
+      /* if (this.BScroll.maxScrollY === position.y) {
+        
+        this.BScroll.options.bounce = { bottom: false }
+      } */
+      /* console.log(this.BScroll.isInTransition) */
+    })
     // 上拉事件
     this.BScroll.on('pullingDown', () => {
       this.BScroll.finishPullDown()
@@ -65,9 +73,9 @@ class BetterScroll extends Component {
       console.log('销毁成功')
     })
     // 当ios系统大于13.4
-    if (isIosVerLgThan1304) {
+    /* if (isIosVerLgThan1304) {
       this.BScroll.options.useTransition = false
-    }
+    } */
   }
   componentWillUnmount() {
     console.log('销毁了')

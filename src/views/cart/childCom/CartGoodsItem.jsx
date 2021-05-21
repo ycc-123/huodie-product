@@ -1,5 +1,11 @@
 import React, { Component, Fragment } from 'react'
+
+
+import { totalPrice } from 'commons/utils'
+
 import { delCartGoods } from 'network/cart'
+
+
 import store from 'store/index'
 import { isDeleteGoods, isSelectStore, isDecrementGoods, isIncrementGoods } from 'store/actionCreators'
 
@@ -64,12 +70,12 @@ class CartGoodsItem extends Component {
   }
   // 删除商品
   deleteGoods = (index, id) => {
-    console.log(id)
     delCartGoods('cart_del', 53, id).then(res => {
       console.log('删除商品成功')
     })
     const action = isDeleteGoods(index)
     store.dispatch(action)
+    totalPrice()
   }
   // 减少商品数量
   decrementGoods = (index) => {

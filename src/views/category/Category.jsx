@@ -25,8 +25,8 @@ class Category extends Component {
     if (this.state.type === 'goods') {
       dom = (
         <Fragment>
-          <CategoryLeft />
-          <CategoryRight />
+          <CategoryLeft ref='left'/>
+          <CategoryRight ref='right'/>
         </Fragment>
       )
       image = (
@@ -35,7 +35,7 @@ class Category extends Component {
     } else {
       dom = (
         <Fragment>
-          <CategoryTabBar />
+          <CategoryTabBar/>
         </Fragment>
       )
       image = (
@@ -66,10 +66,6 @@ class Category extends Component {
         store.dispatch(action)
       })
     })
-  }
-  componentDidMount = () => {
-    let title = document.querySelector('title')
-    title.innerText = '分类'
   }
   changeImage = () => {
     if (this.state.type === 'swiper') {

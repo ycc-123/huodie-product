@@ -9,6 +9,8 @@ import Live from 'views/live/Live'
 import Profile from 'views/profile/Profile'
 import Detail from 'views/detail/Detail'
 import Submit from 'views/submit/Submit'
+import Authorization from 'content/authorization/Authorization'
+import Order from 'views/order/Order'
 
 const AppRouter = () =>  {
   return (
@@ -20,10 +22,13 @@ const AppRouter = () =>  {
         <CacheRoute path="/cart" exact when='always' component={Cart}></CacheRoute>
         <CacheRoute path='/category' when='always' component={Category} ></CacheRoute>
         {/* <CacheRoute path='/live' when='always' exact component={Live}></CacheRoute> */}
+        {/* <CacheRoute path='/detail/:id' when='back' component={Detail} ></CacheRoute> */}
         <Route path='/profile' when='always' component={Profile}></Route>
         <Redirect from='/' exact to='/home'></Redirect>
       </CacheSwitch>
       <Switch>
+        <Route path='/order/:id' exact component={Order}></Route>
+        <Route path='/auth' exact component={Authorization}></Route>
         <Route path='/detail/:id' component={Detail}></Route>
         <Route path='/live' exact component={Live}></Route>
         <Route path='/submit' exact component={Submit}></Route>

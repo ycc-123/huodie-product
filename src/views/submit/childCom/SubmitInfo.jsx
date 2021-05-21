@@ -1,17 +1,25 @@
-import React, { Component, Fragment } from 'react'
-import SubmitWay from './SubmitWay'
+import React, { Component } from 'react'
+import styled from 'styled-components'
+
+/* import Drawer from 'common/drawer/Drawer' */
 
 class SubmitInfo extends Component {
   constructor(props) {
     super(props);
     this.state = {
       way: 'kd',
-      wayActive: false
+      wayActive: false,
+      ppp: '配送方式'
     }
     this.way = [
       { id: 'w101', content: '快递' },
       { id: 'w102', content: '自提' },
       { id: 'w103', content: '送货上门' },
+    ]
+    this.wayName = [
+      { id: 444, content: '申通' },
+      { id: 445, content: '中通' },
+      { id: 446, content: '顺丰' }
     ]
   }
   render() {
@@ -19,9 +27,12 @@ class SubmitInfo extends Component {
     const kd = way === 'kd' ? 'block' : 'none'
     const zt = way === 'zt' ? 'block' : 'none'
     const shsm = way === 'shsm' ? 'block' : 'none'
-    console.log(this.state.wayActive)
+    /* const drawerStyle = {
+      width: '100%',
+      height: '6rem'
+    } */
     return (
-      <Fragment>
+      <SubmitInfoStyle>
         <div className='submit-info'>
           <ul className='submit-nav claerfix'>
             {this.way.map((item, index) => {
@@ -33,10 +44,33 @@ class SubmitInfo extends Component {
         </div>
         <div className='submit-container' style={{ display: kd }}>
           <div className='address'>
-            123123
+            <img className="addressimg1" src="" alt="" />
+            <div className="addressframe">
+              <div className="addressframek1">
+                <div className="addressframek1text1">张三丰</div>
+                <div className="addressframek1text2">12345678910</div>
+              </div>
+              <div className="addressframek2">
+                <div className="addressframek2text">浙江省</div>
+                <div className="addressframek2text">温州市</div>
+                <div className="addressframek2text">瑞安市</div>
+              </div>
+              <div className="addressframek3">
+                XX街道火蝶科技三楼
+              </div>
+            </div>
           </div>
           <div className='way' onClick={() => { this.changeWay() }}>
-            配送方式
+            {this.state.ppp}
+            <ul className='way-box'>
+              {this.wayName.map((item, index) => {
+                return (
+                  <li key={item + index} className='way-select'
+                  /* onClick={(e) => { this.changeText(e) }} */
+                  >{item.content}</li>
+                )
+              })}
+            </ul>
           </div>
           <div className='volum'>
             优惠卷
@@ -47,12 +81,23 @@ class SubmitInfo extends Component {
           </div>
         </div>
         <div className='submit-container' style={{ display: zt }}>
-          <div className='address'>
-            地址
+          <div className='submitzongkuang'>
+            <div className='submitzongkf'>选择门店</div>
+            <div className='subxiantiao'></div>
+            <div className='submitzongkf subzkfdis'>
+              <div>收货人</div>
+              <input className='subzkfipt' style={{textAlign:'right'}}type="text" placeholder="请填写收货人姓名" />
+            </div>
+            <div className='subxiantiao'></div>
+            <div className='submitzongkf subzkfdis'>
+              <div>联系电话</div>
+              <input className='subzkfipt' style={{textAlign:'right'}}type="text" placeholder="请填写联系电话" />
+            </div>
+            <div className='subxiantiao'></div>
+            <input className='submitzongkf subzkfipt' type="text" placeholder="自提说明自提说明" />
           </div>
-          <div className='way'>
-            配送方式
-          </div>
+
+
           <div className='volum'>
             优惠卷
             <span>暂无可用</span>
@@ -77,8 +122,22 @@ class SubmitInfo extends Component {
             商家备注:
           </div>
         </div>
-        <SubmitWay active={this.state.wayActive} showDrawer={this.showDrawer} />
-      </Fragment>
+        {/* <Drawer
+          active={this.state.wayActive}
+          showDrawer={this.showDrawer}
+          changeText={(text) => { this.changeText(text) }}
+          style={drawerStyle}>
+          <ul className='way-box'>
+            {this.wayName.map((item, index) => {
+              return (
+                <li key={item + index} className='way-select'
+                  onClick={(e) => { this.changeText(e) }}
+                >{item.content}</li>
+              )
+            })}
+          </ul>
+        </Drawer> */}
+      </SubmitInfoStyle>
 
     );
   }
@@ -126,6 +185,71 @@ class SubmitInfo extends Component {
       wayActive: !this.state.wayActive
     })
   }
+  changeText = (text) => {
+    this.setState({
+      ppp: text
+    })
+  }
 }
 
+const SubmitInfoStyle = styled.div`
+.address{
+  display:flex;
+  align-items:center;
+}
+.addressimg1{
+  width:.8rem;
+  height:.8rem;
+}
+.addressframe{
+ margin-left:.4rem;
+}
+.addressframek1{
+  display: flex;
+  align-items: baseline;
+}
+.addressframek1text1{
+  font-size:.4rem;
+  font-weight:600;
+}
+.addressframek1text2{
+  margin-left:.4rem;
+  font-size:.27rem;
+  font-weight:600;
+}
+.addressframek2{
+  display: flex;
+  font-size:.32rem;
+  font-weight:600;
+}
+.addressframek2text{
+  margin-right:.14rem;
+}
+.addressframek3{
+  display: flex;
+  font-size:.32rem;
+}
+.submitzongkuang{
+  background:white;
+  border-radius:3%;
+}
+.submitzongkf{
+  font-size:.32rem;
+  height:1.12rem;
+  line-height:1.12rem;
+  margin: 0px 0.4rem;
+}
+.subzkfdis{
+  display:flex;
+  justify-content:space-between;
+}
+.subzkfipt{
+  border:none;
+}
+.subxiantiao{
+  border:.007rem solid #CCC;
+}
+`
+
 export default SubmitInfo;
+

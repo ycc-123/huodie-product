@@ -1,6 +1,8 @@
 import { SHOW_LOADING, HIDE_LOADING, INCREMENT_GOODS, DECREMENT_GOODS, GET_DATA, 
   IS_SELECT, SELECT_ALL, DELETE_CART_GOODS,
-  CATEGORY_TITLE, CATEGORY_GOODS, CATEGORY_INDEX} from './actionTypes'
+  CATEGORY_TITLE, CATEGORY_GOODS, CATEGORY_INDEX,
+  USER_INFO
+} from './actionTypes'
 
 
 /* 
@@ -64,6 +66,11 @@ export const changeCategoryIndexAction = (index) => ({
   index
 })
 
+export const saveUserInfoAction = (data) => ({
+  type: USER_INFO,
+  data
+})
+
 
 // 商品选中时修改selected 并且判断全部商品是否选中
 export const isSelectStore = (index) => {
@@ -90,6 +97,13 @@ export const isDecrementGoods = (index) => {
 export const isIncrementGoods = (index) => {
   return (dispatch) => {
     const action = incrementAction(index)
+    dispatch(action)
+  }
+}
+
+export const saveUserInfo = (data) => {
+  return (dispatch) => {
+    const action = saveUserInfoAction(data)
     dispatch(action)
   }
 }

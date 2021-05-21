@@ -58,8 +58,9 @@ class CategoryRight extends Component {
   componentDidUpdate() {
     // 默认每次加载x=0，y=0 不然会有bug
     // console.log(this)
-    this.refs.scroll.BScroll.refresh()
-    this.refs.scroll.BScroll.scrollTo(0, 0)
+    /* console.log('进来了') */
+    /* this.refs.scroll.BScroll.refresh() */
+    /* this.refs.scroll.BScroll.scrollTo(0, 0) */
   }
   componentWillUnmount() {
     // 取消订阅者模式
